@@ -2,14 +2,11 @@
 
   ## File `~/.xsession`
 
-```conf
-# Target DPI
-dpi=122
-# For applications supporting XSettings, `Xft/DPI' sets font scaling
-# (and sometimes interface scaling), `Gdk/WindowScalingFactor' sets
-# interface scaling with GTK 3, and `Gdk/UnscaledDPI' undo font scaling
-# for GTK 3 applications.
-> ~/.xsettingsd cat <<EOF
+For target DPI=122 for applications supporting XSettings, `Xft/DPI` sets font scaling (and sometimes interface scaling), `Gdk/WindowScalingFactor` sets
+interface scaling with GTK 3, `and `Gdk/UnscaledDPI` undo font scaling for GTK 3 applications.
+
+```sh
+$ cat<<EOF> ~/.xsettingsd
 Xft/DPI $(( $dpi*1024 ))
 Gdk/WindowScalingFactor $(( $dpi/96 ))
 Gdk/UnscaledDPI $(( $dpi*1024/($dpi/96) ))
